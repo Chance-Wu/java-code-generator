@@ -1,0 +1,81 @@
+/*
+ * @Date: {{ copyrightDate }}
+ * @Copyright: {{ copyrightYear }} www.heilan.com.cn Inc. All rights reserved.
+ * 注意：本内容仅限于海澜集团战略信息中心内部传阅，禁止外泄以及用于其他的商业目的
+ */
+
+package {{ package }}.service;
+
+import com.heilan.business.dto.BaseRequest;
+import com.heilan.commons.business.BaseResponse;
+import com.heilan.commons.exception.BizException;
+import com.heilan.commons.pages.PageResponse;
+import com.heilan.commons.result.DefaultResponse;
+import {{ package }}.dto.{{ table.class_name }}DetailDto;
+import {{ package }}.vo.{{ table.class_name }}AddVo;
+import {{ package }}.vo.{{ table.class_name }}IdVo;
+import {{ package }}.vo.{{ table.class_name }}QryVo;
+import {{ package }}.vo.{{ table.class_name }}UpdateVo;
+
+/**
+ * @Description: {{ table.class_name }}Service
+ * @Author: {{ author }}
+ * @Date: {{ date }}
+ * @Version 1.0
+ */
+public interface {{ table.class_name }}Service {
+
+    /**
+     * 分页查询
+     *
+     * @param request 查询参数
+     * @return 分页列表
+     * @throws BizException 业务异常
+     */
+    BaseResponse<PageResponse> queryPage(BaseRequest<{{ table.class_name }}QryVo> request) throws BizException;
+
+    /**
+     * 明细查询
+     *
+     * @param request 查询id
+     * @return 明细信息
+     * @throws BizException 业务异常
+     */
+    BaseResponse<{{ table.class_name }}DetailDto> queryDetail(BaseRequest<{{ table.class_name }}IdVo> request) throws BizException;
+
+    /**
+     * 新增
+     *
+     * @param request 新增参数
+     * @return 响应
+     * @throws BizException 业务异常
+     */
+    DefaultResponse save(BaseRequest<{{ table.class_name }}AddVo> request) throws BizException;
+
+    /**
+     * 编辑
+     *
+     * @param request 更新参数
+     * @return 响应
+     * @throws BizException 业务异常
+     */
+    DefaultResponse update(BaseRequest<{{ table.class_name }}UpdateVo> request) throws BizException;
+
+    /**
+     * 启用
+     *
+     * @param request 启用id
+     * @return 响应
+     * @throws BizException 业务异常
+     */
+    DefaultResponse enable(BaseRequest<{{ table.class_name }}IdVo> request) throws BizException;
+
+    /**
+     * 禁用
+     *
+     * @param request 禁用id
+     * @return 响应
+     * @throws BizException 业务异常
+     */
+    DefaultResponse disable(BaseRequest<{{ table.class_name }}IdVo> request) throws BizException;
+}

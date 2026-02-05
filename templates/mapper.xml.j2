@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="{{ package }}.mapper.{{ table.class_name }}Mapper">
+
+    <resultMap id="BaseResultMap" type="{{ package }}.entity.{{ table.class_name }}">
+        {% for col in table.fields %}
+            {% if col.is_pk %}
+                <id column="{{ col.column_name }}" property="{{ col.field_name }}"/>
+            {% else %}
+                <result column="{{ col.column_name }}" property="{{ col.field_name }}"/>
+            {% endif %}
+        {% endfor %}
+    </resultMap>
+
+</mapper>

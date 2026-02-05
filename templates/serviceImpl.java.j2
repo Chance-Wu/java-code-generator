@@ -1,0 +1,89 @@
+/*
+ * @Date: {{ copyrightDate }}
+ * @Copyright: {{ copyrightYear }} www.heilan.com.cn Inc. All rights reserved.
+ * 注意：本内容仅限于海澜集团战略信息中心内部传阅，禁止外泄以及用于其他的商业目的
+ */
+
+package {{ package }}.service;
+
+import org.springframework.stereotype.Service;
+
+import com.heilan.business.dto.BaseRequest;
+import com.heilan.commons.business.BaseResponse;
+import com.heilan.commons.exception.BizException;
+import com.heilan.commons.pages.PageResponse;
+import com.heilan.commons.result.DefaultResponse;
+import {{ package }}.entity.{{ table.class_name }};
+import {{ package }}.mapper.{{ table.class_name }}Mapper;
+import {{ package }}.dto.{{ table.class_name }}DetailDto;
+import {{ package }}.vo.{{ table.class_name }}AddVo;
+import {{ package }}.vo.{{ table.class_name }}IdVo;
+import {{ package }}.vo.{{ table.class_name }}QryVo;
+import {{ package }}.vo.{{ table.class_name }}UpdateVo;
+import org.springframework.stereotype.Service;
+
+/**
+ * @Description: {{ table.class_name }}Impl
+ * @Author: {{ author }}
+ * @Date: {{ date }}
+ */
+@DubboService
+public class {{ table.class_name }}ServiceImpl implements {{ table.class_name }}Service {
+
+    @Resource
+    private {{ table.class_name }}Mapper {{ table.class_name|lower }}Mapper;
+
+    @Override
+    public BaseResponse<PageResponse> queryPage(BaseRequest<{{ table.class_name }}QryVo> request) throws BizException {
+        {{ table.class_name }}QryVo data = request.getData();
+        logger.info(">>>>>>>> {{ table.class_name }} queryPage|start|params:{} <<<<<<<<", data);
+
+        logger.info(">>>>>>>> {{ table.class_name }} queryPage|end|success <<<<<<<<");
+        return BaseResponse.success();
+    }
+
+    @Override
+    public BaseResponse<{{ table.class_name }}DetailDto> queryDetail(BaseRequest< {{ table.class_name }} IdVo> request) throws BizException {
+        {{ table.class_name }}IdVo data = request.getData();
+        logger.info(">>>>>>>> {{ table.class_name }} queryDetail|start|params:{} <<<<<<<<", data);
+
+        logger.info(">>>>>>>> {{ table.class_name }} queryDetail|end|success <<<<<<<<");
+        return BaseResponse.success();
+    }
+
+    @Override
+    public DefaultResponse save(BaseRequest< {{ table.class_name }} AddVo> request) throws BizException {
+        {{ table.class_name }}AddVo data = request.getData();
+        logger.info(">>>>>>>> {{ table.class_name }} save|start|params:{} <<<<<<<<", data);
+
+        logger.info(">>>>>>>> {{ table.class_name }} save|end|success <<<<<<<<");
+        return DefaultResponse.success();
+    }
+
+    @Override
+    public DefaultResponse update(BaseRequest< {{ table.class_name }} UpdateVo> request) throws BizException {
+        {{ table.class_name }}UpdateVo data = request.getData();
+        logger.info(">>>>>>>> {{ table.class_name }} update|start|params:{} <<<<<<<<", data);
+
+        logger.info(">>>>>>>> {{ table.class_name }} update|end|success <<<<<<<<");
+        return DefaultResponse.success();
+    }
+
+    @Override
+    public DefaultResponse enable(BaseRequest< {{ table.class_name }} IdVo> request) throws BizException {
+        {{ table.class_name }}IdVo data = request.getData();
+        logger.info(">>>>>>>> {{ table.class_name }} enable|start|params:{} <<<<<<<<", data);
+
+        logger.info(">>>>>>>> {{ table.class_name }} enable|end|success <<<<<<<<");
+        return DefaultResponse.success();
+    }
+
+    @Override
+    public DefaultResponse disable(BaseRequest< {{ table.class_name }} IdVo> request) throws BizException {
+        {{ table.class_name }}IdVo data = request.getData();
+        logger.info(">>>>>>>> {{ table.class_name }} disable|start|params:{} <<<<<<<<", data);
+
+        logger.info(">>>>>>>> {{ table.class_name }} disable|end|success <<<<<<<<");
+        return DefaultResponse.success();
+    }
+}

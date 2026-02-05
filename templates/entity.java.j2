@@ -1,0 +1,32 @@
+package {{ package }}.dal.entitys;
+
+{% for i in table.imports %}
+import {{ i }};
+{% endfor %}
+
+@Table(name = "{{ table.table_name }}")
+public class {{ table.class_name }} {
+
+{% for col in table.fields %}
+    /**
+    * {{ col.comment }}
+    */
+    {% if col.pk %}
+        @Id
+    {% endif %}
+    @Column(name = "{{ col.column_name }}")
+    private {{ col.java_type }} {{ col.field_name }};
+
+{% endfor %}
+
+{% for f in table.fields %}
+    public {{ f.java_type }} get{{ f.field_name[0].upper() + f.field_name[1:] }}() {
+        return {{ f.field_name }};
+    }
+
+    public void set{{ f.field_name[0].upper() + f.field_name[1:] }}({{ f.java_type }} {{ f.field_name }}) {
+        this.{{ f.field_name }} = {{ f.field_name }};
+    }
+
+{% endfor %}
+}
